@@ -32,12 +32,12 @@ public class HttpClientUtils {
                 .build();
         try {
 
-            HttpPost post = new HttpPost("http://www.baiduc.com");
-            BasicClientCookie cookie = new BasicClientCookie("name", "zhaoke");
-            cookie.setVersion(0);
+            HttpPost post = new HttpPost("https://passport.baidu.com/v2/api/?getapi&tpl=dev&apiver=v3&tt=%s&class=login&gid=%s&logintype=dialogLogin");
+            //BasicClientCookie cookie = new BasicClientCookie("name", "zhaoke");
+           /* cookie.setVersion(0);
             cookie.setDomain("/pms/");   //设置范围
             cookie.setPath("/");
-            cookieStore.addCookie(cookie);
+            cookieStore.addCookie(cookie);*/
             httpClient.execute(post);//
             List<Cookie> cookies = cookieStore.getCookies();
             for (int i = 0; i < cookies.size(); i++) {
