@@ -25,7 +25,12 @@ spring:
         encoding.charset: UTF-8
         encoding.enable: true
         encoding.force: true
-
+    thymeleaf:
+          mode: HTML5
+          encoding: utf-8
+          content-type: text/html
+          cache: false
+          prefix: /view/
 # MyBatis
 mybatis:
     typeAliasesPackage: cn.darkshadow.**.domain
