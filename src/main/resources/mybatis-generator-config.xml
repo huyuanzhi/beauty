@@ -69,7 +69,7 @@
         </javaClientGenerator>
 
         <!-- 配置表信息 -->
-        <table schema="Boot" tableName="tb_topic" domainObjectName="Topic" enableCountByExample="false"
+        <table schema="Boot" tableName="base_member_student_1" domainObjectName="Student" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
 
