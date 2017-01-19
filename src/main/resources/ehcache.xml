@@ -2,7 +2,7 @@
          xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
 
     <diskStore path="java.io.tmpdir"/>
-    <cache name="myCache"
+    <cache name="springCache"
            maxElementsInMemory="10000"
            maxElementsOnDisk="100000"
            eternal="false"

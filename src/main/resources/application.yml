@@ -33,7 +33,7 @@ spring:
           prefix: /view/
     cache:
       ehcache:
-        config:classpath:/ehcache.xml
+        config: ehcache.xml
 # MyBatis
 mybatis:
     typeAliasesPackage: cn.darkshadow.**.domain
@@ -43,5 +43,14 @@ mybatis:
 # LOGGING
 logging:
     level:
-       com.ibatis:DEBUG,
-       org.springframework:DEBUG
+       com.ibatis: DEBUG,
+       org.springframework: DEBUG
+
+#EHCACHE
+ehcache:
+      name: objectCache
+      maxEntriesLocalHeap: 10000
+      overflowToDisk: true
+      eternal: false
+      timeToLiveSeconds: 3600
+      timeToIdleSeconds: 3600

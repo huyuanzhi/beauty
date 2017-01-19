@@ -169,13 +169,10 @@ public class BaiDu {
         params.add(new BasicNameValuePair("index", "0"));
         params.add(new BasicNameValuePair("ppui_logintime", "302722"));
         params.add(new BasicNameValuePair("foreignusername", ""));
-        params.add(new BasicNameValuePair("verifycode", context
-                .get("verifycode")));
-        params.add(new BasicNameValuePair("codestring", context
-                .get("codestring")));
+        params.add(new BasicNameValuePair("verifycode", context.get("verifycode")));
+        params.add(new BasicNameValuePair("codestring", context.get("codestring")));
         params.add(new BasicNameValuePair("mem_pass", "on"));
-        params.add(new BasicNameValuePair("callback",
-                "parent.bd__pcbs__thto43"));
+        params.add(new BasicNameValuePair("callback", "parent.bd__pcbs__thto43"));
         params.add(new BasicNameValuePair("crypttype", "12"));
         post = new HttpPost();
         post.setURI(new URI("https://passport.baidu.com/v2/api/?login"));
