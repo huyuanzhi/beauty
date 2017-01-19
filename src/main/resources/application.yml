@@ -31,6 +31,9 @@ spring:
           content-type: text/html
           cache: false
           prefix: /view/
+    cache:
+      ehcache:
+        config:classpath:/ehcache.xml
 # MyBatis
 mybatis:
     typeAliasesPackage: cn.darkshadow.**.domain
