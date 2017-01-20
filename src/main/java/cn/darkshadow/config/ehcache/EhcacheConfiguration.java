@@ -41,12 +41,18 @@ public class EhcacheConfiguration implements EnvironmentAware {
     public Cache cache(){
         CacheConfiguration config = new CacheConfiguration();
         try {
-            config.setName(propertyResolver.getProperty("name"));
-            config.setMaxEntriesLocalHeap(Long.valueOf(propertyResolver.getProperty("maxEntriesLocalHeap")));
-            config.setOverflowToDisk(Boolean.valueOf(propertyResolver.getProperty("overflowToDisk")));
-            config.setEternal(Boolean.valueOf(propertyResolver.getProperty("eternal")));
-            config.setTimeToLiveSeconds(Long.valueOf(propertyResolver.getProperty("timeToLiveSeconds")));
-            config.setTimeToIdleSeconds(Long.valueOf(propertyResolver.getProperty("timeToIdleSeconds")));
+            config.setName(propertyResolver
+                    .getProperty("name"));
+            config.setMaxEntriesLocalHeap(Long.valueOf(propertyResolver
+                    .getProperty("maxEntriesLocalHeap")));
+            config.setOverflowToDisk(Boolean.valueOf(propertyResolver
+                    .getProperty("overflowToDisk")));
+            config.setEternal(Boolean.valueOf(propertyResolver
+                    .getProperty("eternal")));
+            config.setTimeToLiveSeconds(Long.valueOf(propertyResolver
+                    .getProperty("timeToLiveSeconds")));
+            config.setTimeToIdleSeconds(Long.valueOf(propertyResolver
+                    .getProperty("timeToIdleSeconds")));
         }catch (Exception e){
             logger.error("Could not confiure ehcache cache");
         }

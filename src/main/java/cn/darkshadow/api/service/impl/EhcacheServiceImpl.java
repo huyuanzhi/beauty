@@ -20,18 +20,17 @@ import javax.inject.Inject;
 public class EhcacheServiceImpl implements EhcacheService {
 
     @Inject
-    private  Cache cache;
+    private Cache cache;
 
     @Override
     public <T> T get(String key) {
         try {
-            if (ObjectUtils.isNotNull(cache) && ObjectUtils.isNotNull(cache.get(key))) {
+            if (null != cache && null != cache.get(key)) {
                 return (T) cache.get(key).getObjectValue();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return null;
     }
 
@@ -41,8 +40,8 @@ public class EhcacheServiceImpl implements EhcacheService {
             if (cache != null) {
                 cache.put(new Element(key, value));
             }
-        } catch (Exception var3) {
-            var3.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -54,8 +53,8 @@ public class EhcacheServiceImpl implements EhcacheService {
                 var4.setTimeToLive(timeToLiveSeconds);
                 cache.put(var4);
             }
-        } catch (Exception var41) {
-            var41.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -65,10 +64,9 @@ public class EhcacheServiceImpl implements EhcacheService {
             if (cache != null) {
                 return cache.remove(key);
             }
-        } catch (Exception var2) {
-            var2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
         return false;
     }
 
@@ -78,10 +76,9 @@ public class EhcacheServiceImpl implements EhcacheService {
             if (cache != null) {
                 cache.removeAll();
             }
-        } catch (Exception var1) {
-            var1.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
         return false;
     }
 }

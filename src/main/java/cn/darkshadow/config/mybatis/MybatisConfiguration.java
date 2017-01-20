@@ -30,7 +30,6 @@ public class MybatisConfiguration implements EnvironmentAware {
 
 	private RelaxedPropertyResolver propertyResolver;
 
-	@SuppressWarnings("SpringJavaAutowiringInspection")
 	@Inject
 	private DataSource dataSource;
 
