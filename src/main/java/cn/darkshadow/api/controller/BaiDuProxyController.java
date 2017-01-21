@@ -12,6 +12,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicHeader;
+import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -83,7 +84,14 @@ public class BaiDuProxyController {
                     break;
                 case 0:
                     BaiduHttpClientUtils.getAuth(client,context);
+                    BaiDuContext baiDuContext = new BaiDuContext();
+                    baiDuContext.setHeaders(headers);
+                    baiDuContext.setUsername(username);
+                    baiDuContext.setCookieStore(cookieStore);
+                    baiDuContext.setContext(context);
+                    ehcacheService.set(username,baiDuContext);
                     System.out.println("登陆成功");
+                    return new ResponseEntity<>("success",HttpStatus.OK);
                 default:
                     break;
             }
@@ -97,13 +105,13 @@ public class BaiDuProxyController {
     }
 
     @RequestMapping(value = "/list")
-    private ResponseEntity getFileListByPath(String path) throws Exception {
+    private ResponseEntity list(String path) throws Exception {
         HttpGet get = new HttpGet();
-        BaiDuContext context = ehcacheService.get("691982887@qq.com");
-        HttpClient client =context.getClient();
-        get.setURI(new URI("https://pan.baidu.com/api/list?order=time&desc=1&showempty=0&web=1&page=1&num=100&dir=%2F"));
-        HttpResponse   response = client.execute(get);
-        return new ResponseEntity(response.getEntity(),HttpStatus.OK);
+        get.setURI(new URI("https://pan.baidu.com/api/list?order=time&desc=1&showempty=0&web=1&page=1&num=100&dir=/淘宝私服"));
+        BaiDuContext baiDuContext = ehcacheService.get("691982887@qq.com");
+        HttpClient httpClient = baiDuContext.getClient();
+        HttpResponse response = httpClient.execute(get);
+        return new ResponseEntity(EntityUtils.toString(response.getEntity()),HttpStatus.OK);
     }
 
 }

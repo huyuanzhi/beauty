@@ -8,6 +8,7 @@ import org.apache.http.impl.client.HttpClients;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author: huyuanzhi
@@ -20,9 +21,10 @@ import java.util.List;
 public class BaiDuContext implements Serializable{
 
     private String username;
-    private HttpClient client;
+    private transient HttpClient client;
     private List<Header> headers;
     private CookieStore cookieStore;
+    private Map<String,String> context;
 
     public BaiDuContext() {
     }
@@ -58,5 +60,13 @@ public class BaiDuContext implements Serializable{
 
     public void setCookieStore(CookieStore cookieStore) {
         this.cookieStore = cookieStore;
+    }
+
+    public Map<String, String> getContext() {
+        return context;
+    }
+
+    public void setContext(Map<String, String> context) {
+        this.context = context;
     }
 }
