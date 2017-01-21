@@ -51,6 +51,6 @@ ehcache:
       name: objectCache
       maxEntriesLocalHeap: 10000
       overflowToDisk: true
-      eternal: false
+      eternal: true
       timeToLiveSeconds: 3600
       timeToIdleSeconds: 3600

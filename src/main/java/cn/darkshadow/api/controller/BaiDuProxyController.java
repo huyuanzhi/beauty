@@ -82,6 +82,7 @@ public class BaiDuProxyController {
                     BaiduHttpClientUtils.volidate(context,client);
                     break;
                 case 0:
+                    BaiduHttpClientUtils.getAuth(client,context);
                     System.out.println("登陆成功");
                 default:
                     break;

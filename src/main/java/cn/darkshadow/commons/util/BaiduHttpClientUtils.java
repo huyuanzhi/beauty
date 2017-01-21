@@ -74,6 +74,24 @@ public class BaiduHttpClientUtils {
         return null;
     }
 
+    public static void getAuth(HttpClient client,Map<String,String> context) throws Exception {
+        HttpGet get = new HttpGet();
+        get.setURI(new URI("https://passport.baidu.com/v3/login/api/auth/?return_type=3&tpl=netdisk&u=https%3A%2F%2Fpan.baidu.com%2Fdisk%2Fhome"));
+        HttpResponse res = client.execute(get);
+        String auth = EntityUtils.toString(res.getEntity());
+        Matcher matcher = Pattern.compile("\"bdstoken\":\"(.*?)\"").matcher(auth);
+        if(matcher.find()){
+            String bdstoken = matcher.group(1);
+            context.put("bdstoken",bdstoken);
+        }
+        Matcher matcher2 = Pattern.compile("\"username\":\"(.*?)\"").matcher(auth);
+        if(matcher2.find()){
+            String username = matcher2.group(1);
+            username = StringUtils.unicode2String(username);
+            context.put("nickname",username);
+        }
+    }
+
     public static String login(Map<String,String> context,HttpClient client) throws Exception {
         List<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>() {
             @Override
