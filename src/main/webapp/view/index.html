@@ -8,21 +8,76 @@
     <meta name="author" content=""/>
     <link rel="icon" href="favicon.ico"/>
     <title>首页</title>
-    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <!--<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>-->
     <style>
         body {
             min-height: 2000px;
             padding-top: 70px;
+            color: #333;
+            font-size: 14px;
+            font-family: "Helvetica neue",Helvetica,Tahoma,"lantinghei sc","Microsoft Yahei",sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background: #f4f4f4 url(//dn-lay.qbox.me/build/single-page/images/mask_f70d8a0.png);
         }
         .top{
             border-top:2px solid #f70;
             background-color: #fff;
             box-shadow: 0 0 5px rgba(0,0,0,.4);
         }
-        .container{
-            width:80%;
+        .navb{
+            width:75%;
+        }
+        .panel{
+            margin:2px 2px;
+            border-radius: 0px;
+        }
+        .panel .panel-heading{
+            padding:0px 0px;
+            border: none;
+        }
+        .panel .panel-footer{
+            background-color: #ffffff;
+        }
+        .col-xs-12,col-md-3{
+            padding-right: 2px;
+            padding-left: 2px;
+        }
+        .container-fluid{
+            width:auto;
+        }
+        .panel-body .title {
+            display: block;
+            padding: 0em .5em .2em;
+            font-weight: 400;
+            line-height: 1.5em;
+            text-align: center;
+            font-size: 18px;
+            color: #000;
+            outline: 0;
+        }
+        .panel-body .content {
+            padding: 10px 0px;
+            line-height: 1.4;
+            font-size: 13px;
+            color: #888;
+            text-indent: 2em;
+        }
+        .tags {
+            display: table-cell;
+            width: 99%;
+            font-size: 13px;
+        }
+        .tags strong {
+            margin-right: 5px;
+            color: #aaa;
+            font-weight: 400;
+        }
+        .tags a {
+            display: inline-block;
+            margin-right: 5px;
+            color: #777;
         }
         .aside {
             width: 265px;
@@ -33,58 +88,310 @@
     </style>
 </head>
 <body>
+<div class="navb">
+    <nav class="navbar navbar-default navbar-fixed-top top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Maji</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Nav header</li>
+                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="javascript:add()">Fixed top <span class="sr-only">(current)</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
 
-<nav class="navbar navbar-default navbar-fixed-top top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Maji</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">Dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="../navbar/">Default</a></li>
-                <li><a href="../navbar-static-top/">Static top</a></li>
-                <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
 
 <div class="container">
-
-    <aside class="aside">
-        <div class="block">
-
+    <div class="row">
+        <div class="col-xs-12 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <img class="img-responsive" src="http://dn-lay.qbox.me/images/liferay_frontEnd_dev.png?imageView2/2/w/420/q/85"/>
+                </div>
+                <div class="panel-body">
+                    <div class="title">
+                        你叫什么名字？
+                    </div>
+                    <div class="content">
+                        <p>
+                            强大的DOM选择器和兼容性方面的处理，是很多人离不开jQuery 的一大原因，若项目在浏览器支持上并不需要向下兼容，合理的放弃 jQuery 倒也未尝不可，小剧就来说说如何实现 dom 的选择查找。
+                        </p>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="tags">
+                        <strong>tags</strong>
+                        <a href="#">java</a>
+                        <a href="#">c#</a>
+                        <a href="#">nodejs</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </aside>
-
-
+        <div class="col-xs-12 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="title">
+                        你叫什么名字？
+                    </div>
+                    <div class="content">
+                        <p>
+                            强大的DOM选择器和兼容性方面的处理，是很多人离不开jQuery 的一大原因，若项目在浏览器支持上并不需要向下兼容，合理的放弃 jQuery 倒也未尝不可，小剧就来说说如何实现 dom 的选择查找。
+                        </p>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="tags">
+                        <strong>tags</strong>
+                        <a href="#">java</a>
+                        <a href="#">c#</a>
+                        <a href="#">nodejs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix visible-xs-block"></div>
+        <div class="col-xs-12 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <img class="img-responsive" src="http://dn-lay.qbox.me/images/liferay_frontEnd_dev.png?imageView2/2/w/420/q/85"/>
+                </div>
+                <div class="panel-body">
+                    <div class="title">
+                        你叫什么名字？
+                    </div>
+                    <div class="content">
+                        <p>
+                            强大的DOM选择器和兼容性方面的处理，是很多人离不开jQuery 的一大原因
+                        </p>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="tags">
+                        <strong>tags</strong>
+                        <a href="#">java</a>
+                        <a href="#">c#</a>
+                        <a href="#">nodejs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <img class="img-responsive" src="http://dn-lay.qbox.me/images/liferay_frontEnd_dev.png?imageView2/2/w/420/q/85"/>
+                </div>
+                <div class="panel-body">
+                    <div class="title">
+                        你叫什么名字？
+                    </div>
+                    <div class="content">
+                        <p>
+                            强大的DOM选择器和兼容性方面的处理，是很多人离不开jQuery 的一大原因，若项目在浏览器支持上并不需要向下兼容，合理的放弃 jQuery 倒也未尝不可，小剧就来说说如何实现 dom 的选择查找。
+                        </p>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="tags">
+                        <strong>tags</strong>
+                        <a href="#">java</a>
+                        <a href="#">c#</a>
+                        <a href="#">nodejs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <img class="img-responsive" src="http://dn-lay.qbox.me/images/liferay_frontEnd_dev.png?imageView2/2/w/420/q/85"/>
+                </div>
+                <div class="panel-body">
+                    <div class="title">
+                        你叫什么名字？
+                    </div>
+                    <div class="content">
+                        <p>
+                            强大的DOM选择器和兼容性方面的处理，是很多人离不开jQuery 的一大原因，若项目在浏览器支持上并不需要向下兼容，合理的放弃 jQuery 倒也未尝不可，小剧就来说说如何实现 dom 的选择查找。
+                        </p>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="tags">
+                        <strong>tags</strong>
+                        <a href="#">java</a>
+                        <a href="#">c#</a>
+                        <a href="#">nodejs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <img class="img-responsive" src="http://dn-lay.qbox.me/images/liferay_frontEnd_dev.png?imageView2/2/w/420/q/85"/>
+                </div>
+                <div class="panel-body">
+                    <div class="title">
+                        你叫什么名字？
+                    </div>
+                    <div class="content">
+                        <p>
+                            强大的DOM选择器和兼容性方面的处理，是很多人离不开jQuery 的一大原因，若项目在浏览器支持上并不需要向下兼容，合理的放弃 jQuery 倒也未尝不可，小剧就来说说如何实现 dom 的选择查找。
+                        </p>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="tags">
+                        <strong>tags</strong>
+                        <a href="#">java</a>
+                        <a href="#">c#</a>
+                        <a href="#">nodejs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <img class="img-responsive" src="http://dn-lay.qbox.me/images/liferay_frontEnd_dev.png?imageView2/2/w/420/q/85"/>
+                </div>
+                <div class="panel-body">
+                    <div class="title">
+                        你叫什么名字？
+                    </div>
+                    <div class="content">
+                        <p>
+                            强大的DOM选择器和兼容性方面的处理，是很多人离不开jQuery 的一大原因，若项目在浏览器支持上并不需要向下兼容，合理的放弃 jQuery 倒也未尝不可，小剧就来说说如何实现 dom 的选择查找。
+                        </p>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="tags">
+                        <strong>tags</strong>
+                        <a href="#">java</a>
+                        <a href="#">c#</a>
+                        <a href="#">nodejs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <img class="img-responsive" src="http://dn-lay.qbox.me/images/liferay_frontEnd_dev.png?imageView2/2/w/420/q/85"/>
+                </div>
+                <div class="panel-body">
+                    <div class="title">
+                        你叫什么名字？
+                    </div>
+                    <div class="content">
+                        <p>
+                            强大的DOM选择器和兼容性方面的处理，是很多人离不开jQuery 的一大原因，若项目在浏览器支持上并不需要向下兼容，合理的放弃 jQuery 倒也未尝不可，小剧就来说说如何实现 dom 的选择查找。
+                        </p>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="tags">
+                        <strong>tags</strong>
+                        <a href="#">java</a>
+                        <a href="#">c#</a>
+                        <a href="#">nodejs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <img class="img-responsive" src="http://dn-lay.qbox.me/images/liferay_frontEnd_dev.png?imageView2/2/w/420/q/85"/>
+                </div>
+                <div class="panel-body">
+                    <div class="title">
+                        你叫什么名字？
+                    </div>
+                    <div class="content">
+                        <p>
+                            强大的DOM选择器和兼容性方面的处理，是很多人离不开jQuery 的一大原因，若项目在浏览器支持上并不需要向下兼容，合理的放弃 jQuery 倒也未尝不可，小剧就来说说如何实现 dom 的选择查找。
+                        </p>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="tags">
+                        <strong>tags</strong>
+                        <a href="#">java</a>
+                        <a href="#">c#</a>
+                        <a href="#">nodejs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <script type="text/javascript" src="../assets/jquery.min.js"></script>
 <script type="text/javascript" src="../assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/assets/masonry.min.js" type="text/javascript"></script>
 </body>
+<script type="text/javascript">
+    $(function() {
+        var $container = $('.row');
+        $container.imagesLoaded(function() {
+            $container.masonry({
+                itemSelector: '.col-xs-12',
+                isAnimated: true,
+            });
+        });
+    });
+    function add(){
+        var container = document.querySelector('.row');
+        var msnry = new Masonry( container);
+        var elems = [];
+        var fragment = document.createDocumentFragment();
+        var elem = getItemElement();
+        fragment.appendChild( elem );
+        elems.push( elem );
+        container.appendChild( fragment );
+        msnry.appended( elems );
+        msnry.reloadItems();
+    }
+
+    function getItemElement() {
+        var elem = document.createElement('div');
+        var html='<div class="panel panel-default">'+
+            '<div class="panel-body">'+
+            'Panel content'+
+        '</div> <div class="panel-footer">Panel footer</div></div>';
+        $(elem).html(html)
+        elem.className = 'col-xs-12 col-md-3';
+        return elem;
+    }
+</script>
 </html>
